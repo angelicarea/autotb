@@ -4,13 +4,13 @@
 
 ## 注意事项
 打包后的程序根目录下config.json文件,为更改填表网分支服务器的域名地址配置文件
-###结构为
+### 结构为
 ```
 {
 	"host" : "https://gbf.xinoassassin.me/"
 }
 ```
-###目前可用分支
-####1.https://gbf.xinoassassin.me/
-####2.http://gbf-raidfinder.aikats.us/
-####3.https://gbf-raidfinder.la-foret.me/
+### 目前可用分支
+#### 1.https://gbf.xinoassassin.me/
+#### 2.http://gbf-raidfinder.aikats.us/
+#### 3.https://gbf-raidfinder.la-foret.me/
