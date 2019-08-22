@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填表程序:自动复制左侧最新房间ID</title>
+</head>
+<body>
+<iframe id="gt" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
+
+</iframe>
+<script src="jquery-1.11.1.min.js"></script>
+<script>
+var gui = require('nw.gui');
+var clipboard = gui.Clipboard.get();
+var path = require("path");
+var execPath = path.dirname(process.execPath);
+var config =require(execPath + '/config.json');
+var host = config.host;
+var text = "";
+var obj,$obj;
+$(function () {
+    $("#gt").attr("src", host);
+    $("body").width($(window).width()-20);
+    $("body").height($(window).height()-30);
+    $(window).resize(function(){
+        $("body").width($(window).width()-20);
+        $("body").height($(window).height()-30);
+    });
+    setInterval(function (e) {
+        obj = window.frames[0].document.getElementsByClassName("gbfrf-tweets")[0].children[0];
+        $obj = $(obj);
+        if($obj.find(".gbfrf-tweet__raid-id").html() !== undefined && text != $obj.find(".gbfrf-tweet__raid-id").html().trim()){
+            text = $obj.find(".gbfrf-tweet__raid-id").html().trim();
+            clipboard.set(text, 'text');
+        }
+    }, 50);
+});
+</script>
+</body>
+</html>
